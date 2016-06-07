@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,minimal-ui" >
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" >
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" >
+    <meta name="format-detection" content="telephone=no,email=no" >
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <link type="text/css" rel="stylesheet" href="css/page.css" />
+</head>
+<body class="has-panel">
+    <header class="header">
+       <span id="panelSwitch" class="btn-list fl"></span>
+       <h1> 标题</h1>
+    </header>
+    <div class="wrap-page">
+        <div id="popup-page">
+            popup-page
+        </div>
+        <div id="popup-over">
+            pop-over
+        </div>
+    </div>
+    <footer class="footer">
+        页脚
+    </footer>
+    <section class="panel"></section>
+    <section class="popup-page">
+        <div class="popup-hd">
+            <span class="btn-close" id="popup-page-close">
+                &times;
+            </span>
+        </div>
+        <div class="popup-bd">
+            这是popup page
+        </div>
+    </section>
+    <div class="overlay" id="overlay">
+        <section class="popup-over" style="display:none">
+            <p>popup over</p>
+            <p>1111111111111111111111111111111111111111111111111111111111111111111111</p>
+        </section>
+    </div>
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/zepto_animate.js"></script> <script type="text/javascript" src="js/zepto_fx.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            var $body=$("body");
+
+            $("#panelSwitch").on("tap",function(){
+               if($body.hasClass("panel-active")){
+                   $body.removeClass("panel-active");
+                   $body.off("touchmove",disableScroll);
+               } else{
+                   $body.addClass("panel-active");
+                   $body.on("touchmove",disableScroll);
+               }
+            });
+
+            $("#popup-page").on("tap",function(){
+                $(".popup-page").addClass("active");
+            });
+
+            $("#popup-page-close").on("tap",function(){
+                $(".popup-page").removeClass("active");
+            });
+
+            // pop over
+            var $overlay = $('#overlay');
+
+            function modalHidden($ele) {
+                $ele.removeClass('active');
+                $ele.one('transitionend',function(){
+                    $ele.css({"display": "none"});
+                    $overlay.removeClass('active');
+                });
+            }
+
+            $('#popup-over').on("tap",function(){
+                var offset = $(this).offset();
+                $overlay.addClass('active');
+                var $whichPopup = $('.popup-over');
+                $whichPopup.animate({"display": "block", "left": offset.left+30, "top": offset.top+50},100,
+                        function(){
+                            $(this).addClass('active');
+                        });
+
+                $overlay.one("tap",function(){
+                    modalHidden($whichPopup);
+                });
+                $whichPopup.one("tap",function(e){
+                    e.stopPropagation();
+                });
+            });
+
+            function disableScroll(e){
+                e.preventDefault();
+            }
+        });
+
+    </script>
+</body>
+</html>
