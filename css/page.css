@@ -224,7 +224,6 @@ body.panel-active {
   -o-transform: translate3d(0, 0, 0);
 }
 .page {
-  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
   position: absolute;
