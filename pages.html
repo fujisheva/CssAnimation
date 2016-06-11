@@ -16,14 +16,34 @@
     <header class="header">
        <span id="panelSwitch" class="btn-list fl"></span>
        <h1> 标题</h1>
+        <span class="icon-back"></span>
     </header>
     <div class="wrap-page">
-        <div id="popup-page">
-            popup-page
-        </div>
-        <div id="popup-over">
-            pop-over
-        </div>
+        <section id="pageSection" class="page-active page-index">
+            <div id="popup-page">
+                popup-page
+            </div>
+            <div id="popup-over">
+                pop-over
+            </div>
+
+            <ul class="nav-links">
+                <li data-page="page-a">to page A</li>
+                <li data-page="page-b">to page B</li>
+                <li data-page="page-c">to page C</li>
+            </ul>
+        </section>
+
+        <section class="page page-a page-next">
+            <div class="demo-test"><p>page A</p></div>
+        </section>
+        <section class="page page-b page-next">
+            <div class="demo-test"><p>page B</p></div>
+        </section>
+        <section class="page page-c page-next">
+            <div class="demo-test"><p>page C</p></div>
+        </section>
+
     </div>
     <footer class="footer">
         页脚
@@ -39,6 +59,9 @@
             这是popup page
         </div>
     </section>
+
+
+
     <div class="overlay" id="overlay">
         <section class="popup-over" style="display:none">
             <p>popup over</p>
@@ -46,63 +69,8 @@
         </section>
     </div>
     <script type="text/javascript" src="js/zepto.min.js"></script>
-    <script type="text/javascript" src="js/zepto_animate.js"></script> <script type="text/javascript" src="js/zepto_fx.js"></script>
-
-    <script type="text/javascript">
-        $(function(){
-            var $body=$("body");
-
-            $("#panelSwitch").on("tap",function(){
-               if($body.hasClass("panel-active")){
-                   $body.removeClass("panel-active");
-                   $body.off("touchmove",disableScroll);
-               } else{
-                   $body.addClass("panel-active");
-                   $body.on("touchmove",disableScroll);
-               }
-            });
-
-            $("#popup-page").on("tap",function(){
-                $(".popup-page").addClass("active");
-            });
-
-            $("#popup-page-close").on("tap",function(){
-                $(".popup-page").removeClass("active");
-            });
-
-            // pop over
-            var $overlay = $('#overlay');
-
-            function modalHidden($ele) {
-                $ele.removeClass('active');
-                $ele.one('transitionend',function(){
-                    $ele.css({"display": "none"});
-                    $overlay.removeClass('active');
-                });
-            }
-
-            $('#popup-over').on("tap",function(){
-                var offset = $(this).offset();
-                $overlay.addClass('active');
-                var $whichPopup = $('.popup-over');
-                $whichPopup.animate({"display": "block", "left": offset.left+30, "top": offset.top+50},100,
-                        function(){
-                            $(this).addClass('active');
-                        });
-
-                $overlay.one("tap",function(){
-                    modalHidden($whichPopup);
-                });
-                $whichPopup.one("tap",function(e){
-                    e.stopPropagation();
-                });
-            });
-
-            function disableScroll(e){
-                e.preventDefault();
-            }
-        });
-
-    </script>
+    <script type="text/javascript" src="js/zepto_animate.js"></script>
+    <script type="text/javascript" src="js/zepto_fx.js"></script>
+    <script type="text/javascript" src="js/page.js"></script>
 </body>
 </html>
