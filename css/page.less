@@ -273,3 +273,62 @@ body.panel-active{
     transform: rotate(45deg);
   }
 }
+
+.borderRadius(@radius){
+  -webkit-border-radius: @radius;
+  -moz-border-radius:@radius;
+  border-radius: @radius;
+}
+@keyframes round1{
+  0%,100%{clip:rect(0,105px,105px,0)}
+  25%{clip:rect(105px,105px,210px,0)}
+  50%{clip:rect(105px,210px,210px,105px)}
+  75%{clip:rect(0,210px,105px,105px)}
+}
+
+@keyframes round2{
+  0%,100%{clip:rect(105px,210px,210px,105px)}
+  25%{clip:rect(0,210px,105px,105px)}
+  50%{clip:rect(0,105px,105px,0)}
+  75%{clip:rect(105px,105px,210px,0)}
+}
+
+#roundBox{
+  background-color: #f1f1f1;
+  width: 150px;
+  height: 150px;
+  margin: 40px auto;
+  position: relative;
+  z-index: 3;
+  .borderRadius(100px);
+  &:before {
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right: 0;
+    z-index: -1;
+    margin: -30px;
+    border: 2px solid red;
+    .borderRadius(100px);
+   -webkit-animation:round1 4s linear infinite;
+    -o-animation:round1 4s linear infinite;
+    animation:round1 4s linear infinite;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right: 0;
+    z-index: -1;
+    margin: -30px;
+    border: 2px solid red;
+    .borderRadius(100px);
+    -webkit-animation:round2 4s linear infinite;
+    -o-animation:round2 4s linear infinite;
+    animation:round2 4s linear infinite;
+  }
+}
