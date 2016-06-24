@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,minimal-ui" >
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" >
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" >
+    <meta name="format-detection" content="telephone=no,email=no" >
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <link type="text/css" rel="stylesheet" href="iconFont/iconfont.css" />
+    <link type="text/css" rel="stylesheet" href="css/roulette.css" />
+</head>
+<body>
+    <div class="container">
+        <div id="center" class="iconfont">
+            &#xe600;
+        </div>
+        <ul id="wrapper">
+            <li class="iconfont">&#xe601;</li>
+            <li class="iconfont">&#xe602;</li>
+            <li class="iconfont">&#xe603;</li>
+            <li class="iconfont">&#xe604;</li>
+            <li class="iconfont">&#xe605;</li>
+            <li class="iconfont">&#xe605;</li>
+        </ul>
+
+    </div>
+
+    <script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#center").on("touchstart",function(){
+                $("#wrapper").addClass("open-wrapper");
+            });
+        });
+    </script>
+</body>
+</html>

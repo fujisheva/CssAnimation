@@ -1,7 +1,7 @@
 $(function(){
     var $body=$("body");
-
-    $("#panelSwitch").on("tap",function(){
+    // panel
+    $("#panelSwitch").on("touchstart",function(){
         if($body.hasClass("panel-active")){
             $body.removeClass("panel-active");
             $body.off("touchmove",disableScroll);
@@ -11,11 +11,12 @@ $(function(){
         }
     });
 
-    $("#popup-page").on("tap",function(){
+    // popup page
+    $("#popup-page").on("touchstart",function(){
         $(".popup-page").addClass("active");
     });
 
-    $("#popup-page-close").on("tap",function(){
+    $("#popup-page-close").on("touchstart",function(){
         $(".popup-page").removeClass("active");
     });
 
@@ -24,25 +25,25 @@ $(function(){
 
     function modalHidden($ele) {
         $ele.removeClass('active');
-        $ele.one('transitionend',function(){
+        $ele.one('transitionEnd webkitTransitionEnd oTransitionEnd',function(){
             $ele.css({"display": "none"});
             $overlay.removeClass('active');
         });
     }
 
-    $('#popup-over').on("tap",function(){
+    $('#popup-over').on("touchstart",function(){
         var offset = $(this).offset();
         $overlay.addClass('active');
         var $whichPopup = $('.popup-over');
-        $whichPopup.animate({"display": "block", "left": offset.left+30, "top": offset.top+50},100,
+        $whichPopup.css("display", "block").animate({"left": offset.left+30, "top": offset.top+50},100,
             function(){
                 $(this).addClass('active');
             });
 
-        $overlay.one("tap",function(){
+        $overlay.one("touchstart",function(){
             modalHidden($whichPopup);
         });
-        $whichPopup.one("tap",function(e){
+        $whichPopup.one("touchstart",function(e){
             e.stopPropagation();
         });
     });
@@ -51,19 +52,20 @@ $(function(){
         e.preventDefault();
     }
 
+    //page change
     var $main = $('#pageSection'),
         $back = $('.icon-back');
 
     function pageSlideOver(){
-        $('.page-out').live('transitionend', function(){
+        $('.page-out').on('transitionEnd webkitTransitionEnd oTransitionEnd', function(){
             $(this).removeClass('page-out');
         });
-        $('.page-in').live('transitionend', function(){
+        $('.page-in').on('transitionEnd webkitTransitionEnd oTransitionEnd', function(){
             $(this).removeClass('page-in');
         });
     }
 
-    $main.on('tap', '.nav-links li', function(e){
+    $main.on('touchstart', '.nav-links li', function(e){
 
         var $pageTo = $('.'+$(this).data("page"));
 
@@ -75,7 +77,7 @@ $(function(){
 
     });
 
-    $back.on('tap',function() {
+    $back.on('touchstart',function() {
         $('.page-active').removeClass('page-active').addClass('page-next page-out');
         $('.' + $(this).data('page')).removeClass('page-prev').addClass('page-active page-in');
         pageSlideOver();

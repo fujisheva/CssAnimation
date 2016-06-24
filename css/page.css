@@ -155,6 +155,8 @@ body.panel-active {
 }
 .popup-over {
   background-color: #fff;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
   border-radius: 8px;
   position: absolute;
   top: 0;
@@ -163,6 +165,7 @@ body.panel-active {
   padding: 10px;
   z-index: 950;
   opacity: 0;
+  display: none;
   transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
