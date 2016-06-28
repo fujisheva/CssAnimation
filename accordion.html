@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" >
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="img/shortcut.ico">
+    <title></title>
+    <style>
+        body{background-color: #000000;}
+        *{margin: 0;padding: 0;}
+        .wrapper{
+            list-style-type: none;
+            width:1000px;
+            height: auto;
+            background-color: pink;
+            border: 5px solid #ffffff;
+            margin: 0 auto;
+            overflow: hidden;
+            zoom: 1;
+        }
+        .wrapper li{
+            float: left;
+            width: 200px;
+            height: 200px;
+            -webkit-transition:all 1s;
+            transition:all 1s;
+        }
+        .wrapper li:nth-child(1){background-color:grey;}
+        .wrapper li:nth-child(2){background-color:#ffff00;}
+        .wrapper li:nth-child(3){background-color:green;}
+        .wrapper li:nth-child(4){background-color:#ff0000;}
+        .wrapper li:nth-child(5){background-color:blue;}
+
+        .wrapper:hover li{
+            width: 40px;
+        }
+        .wrapper li:hover{
+            width: 840px;
+        }
+
+        .course{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
+        .flexItem img{
+            width: 180px;
+            display: block;
+        }
+        .flexItem span{
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <ul class="wrapper">
+        <li>
+            <div class="course">
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="course">
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="course">
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="course">
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="course">
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+                <div class="flexItem">
+                    <img src="img/Hydrangeas.jpg"/>
+                    <span>name</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
