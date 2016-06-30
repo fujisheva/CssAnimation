@@ -1,0 +1,118 @@
+
+.wh(@a,@b){
+  width: @a;
+  height: @b;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+.perspective(@arg){
+  -webkit-perspective:@arg;
+  -moz-perspective:@arg;
+  -ms-perspective:@arg;
+  perspective:@arg;
+}
+
+.transform(@arg){
+  -webkit-transform:@arg;
+  transform:@arg;
+}
+
+.animation(@arg){
+  -webkit-animation:@arg;
+  animation:@arg;
+}
+.animationDelay(@arg){
+  -webkit-animation-delay: @arg;
+  -moz-animation-delay: @arg;
+  -o-animation-delay: @arg;
+  animation-delay: @arg;
+}
+
+  .space{
+    .wh(40px,40px);
+    margin: 0 auto;
+    -webkit-transform-style: peserve-3d;
+    -moz-transform-style: peserve-3d;
+    -ms-transform-style: peserve-3d;
+    transform-style: peserve-3d;
+    perspective-origin:center center;
+    .perspective(120px);
+    .box{
+      .wh(40px,40px);
+      background-color: #333333;
+      .animation(rotatePlane 1.2s infinite ease-in-out);
+    }
+  }
+
+  @keyframes rotatePlane{
+    0%{
+      .transform(rotateX(0deg) rotateY(0deg));
+    }
+    50%{
+      .transform(rotateX(-180deg) rotateY(0deg));
+    }
+    100%{
+      .transform(rotateX(-180deg) rotateY(-180deg));
+    }
+  }
+
+  .folding{
+    .wh(40px,40px);
+    position: relative;
+    .transform(rotateZ(45deg));
+    margin:50px auto;
+    .cube{
+      float: left;
+      position: relative;
+      .wh(50%,50%);
+      &:before{
+        content: "";
+        position: absolute;
+        top:0;
+        left: 0;
+        .wh(100%,100%);
+        background-color: #333333;
+        .animation(fg 2.4s infinite linear);
+        transform-origin:100% 100%;
+      }
+
+      &:nth-child(2){
+        .transform(rotateZ(90deg));
+        &:before{
+          .animationDelay(.3s);
+        }
+      }
+      &:nth-child(3){
+        .transform(rotateZ(180deg));
+        &:before{
+          .animationDelay(.6s);
+        }
+      }
+      &:nth-child(4){
+        .transform(rotateZ(270deg));
+        &:before{
+          .animationDelay(.9s);
+        }
+      }
+    }
+
+  }
+
+  @keyframes fg{
+    0%,10%{
+      .transform(perspective(140px) rotateX(-180deg));
+      opacity: 0;
+    }
+    25%,75%{
+      .transform(perspective(140px) rotateX(0deg));
+      opacity: 1;
+    }
+    90%,100%{
+      .transform(perspective(140px) rotateX(180deg));
+      opacity: 0;
+    }
+  }
+
+
