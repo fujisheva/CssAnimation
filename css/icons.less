@@ -85,15 +85,15 @@
         }
       }
       &:nth-child(3){
-        .transform(rotateZ(180deg));
-        &:before{
-          .animationDelay(.6s);
-        }
-      }
-      &:nth-child(4){
         .transform(rotateZ(270deg));
         &:before{
           .animationDelay(.9s);
+        }
+      }
+      &:nth-child(4){
+        .transform(rotateZ(360deg));
+        &:before{
+          .animationDelay(.6s);
         }
       }
     }
@@ -115,4 +115,116 @@
     }
   }
 
+.loading {
+  width: 150px;
+  height: 15px;
+  margin: 0 auto;
+  margin-top: 100px;
+  span {
+    display: inline-block;
+    width: 15px;
+    height: 100%;
+    margin-right: 5px;
+    background: lightgreen;
+    .animation(load 1.04s ease infinite);
+    &:last-child{
+      margin-right: 0px;
+    }
+    &:nth-child(1){
+      .animationDelay(0.13s);
+    }
+    &:nth-child(2){
+      .animationDelay(0.26s);
+    }
+    &:nth-child(3){
+      .animationDelay(0.39s);
+    }
+    &:nth-child(4){
+      .animationDelay(0.52s);
+    }
+    &:nth-child(5){
+      .animationDelay(0.65s);
+    }
+  }
+}
+
+@-webkit-keyframes load {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    .transform(rotate(90deg));
+  }
+}
+
+.loadEffect {
+  .wh(100px,100px);
+  position: relative;
+  margin: 30px auto;
+  span {
+    display: inline-block;
+    .wh(20px,20px);
+    border-radius: 50%;
+    background: lightgreen;
+    position: absolute;
+    .transform(scale(.3));
+    opacity: 0;
+    .animation(load 1.04s ease infinite);
+    &:nth-child(1){
+      left: 0;
+      top: 50%;
+      margin-top:-10px;
+      .animationDelay(0.13);
+    }
+    &:nth-child(2){
+      left: 14px;
+      top: 14px;
+      .animationDelay(0.26s);
+    }
+    &:nth-child(3){
+      left: 50%;
+      top: 0;
+      margin-left: -10px;
+      .animationDelay(0.39s);
+    }
+    &:nth-child(4){
+      top: 14px;
+      right:14px;
+      .animationDelay(0.52s);
+    }
+    &:nth-child(5){
+      right: 0;
+      top: 50%;
+      margin-top:-10px;
+      .animationDelay(0.65s);
+    }
+    &:nth-child(6){
+      right: 14px;
+      bottom:14px;
+      .animationDelay(0.78s);
+    }
+    &:nth-child(7){
+      bottom: 0;
+      left: 50%;
+      margin-left: -10px;
+      .animationDelay(0.91s);
+    }
+    &:nth-child(8){
+      bottom: 14px;
+      left: 14px;
+      .animationDelay(1.04s);
+    }
+  }
+}
+@-webkit-keyframes load{
+  0%,100%{
+    .transform(scale(.3));
+    opacity: 0.5;
+  }
+ 50%{
+    .transform(scale(1));
+    opacity: 1;
+  }
+}
 
