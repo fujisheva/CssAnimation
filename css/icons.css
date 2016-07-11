@@ -33,8 +33,8 @@
     transform: rotateX(-180deg) rotateY(0deg);
   }
   100% {
-    -webkit-transform: rotateX(-180deg) rotateY(-180deg);
-    transform: rotateX(-180deg) rotateY(-180deg);
+    -webkit-transform: rotateX(-180deg) rotateY(180deg);
+    transform: rotateX(-180deg) rotateY(180deg);
   }
 }
 .folding {
@@ -59,13 +59,17 @@
   width: 100%;
   height: 100%;
   background-color: #333333;
-  -webkit-animation: fg 2.4s infinite linear;
-  animation: fg 2.4s infinite linear;
+  -webkit-animation: fg 3.5s infinite linear;
+  animation: fg 3.5s infinite linear;
   transform-origin: 100% 100%;
 }
+.folding .cube:nth-child(1) {
+  -webkit-transform: rotateZ(270deg);
+  transform: rotateZ(270deg);
+}
 .folding .cube:nth-child(2) {
-  -webkit-transform: rotateZ(90deg);
-  transform: rotateZ(90deg);
+  -webkit-transform: rotateZ(360deg);
+  transform: rotateZ(360deg);
 }
 .folding .cube:nth-child(2):before {
   -webkit-animation-delay: 0.3s;
@@ -74,8 +78,8 @@
   animation-delay: 0.3s;
 }
 .folding .cube:nth-child(3) {
-  -webkit-transform: rotateZ(270deg);
-  transform: rotateZ(270deg);
+  -webkit-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
 }
 .folding .cube:nth-child(3):before {
   -webkit-animation-delay: 0.9s;
@@ -84,8 +88,8 @@
   animation-delay: 0.9s;
 }
 .folding .cube:nth-child(4) {
-  -webkit-transform: rotateZ(360deg);
-  transform: rotateZ(360deg);
+  -webkit-transform: rotateZ(90deg);
+  transform: rotateZ(90deg);
 }
 .folding .cube:nth-child(4):before {
   -webkit-animation-delay: 0.6s;
@@ -161,7 +165,7 @@
   -o-animation-delay: 0.65s;
   animation-delay: 0.65s;
 }
-@-webkit-keyframes load {
+@keyframes load {
   0% {
     opacity: 1;
   }
@@ -258,7 +262,7 @@
   -o-animation-delay: 1.04s;
   animation-delay: 1.04s;
 }
-@-webkit-keyframes load {
+@keyframes load {
   0%,
   100% {
     -webkit-transform: scale(0.3);
@@ -270,4 +274,54 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+.cityIcon {
+  position: relative;
+  margin: 20px auto;
+  width: 100px;
+  height: 100px;
+}
+.cityIcon div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+.cityIcon div span {
+  display: block;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0.5, 0.8);
+  transform: scale(0.5, 0.8);
+}
+.cityIcon div:nth-child(1) {
+  background-color: green;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+.cityIcon div:nth-child(1) span {
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  -webkit-transform-origin: 50% 0;
+  -moz-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  -o-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+}
+.cityIcon div:nth-child(2) {
+  background-color: #ffff00;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+.cityIcon div:nth-child(2) span {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
 }
