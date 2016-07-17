@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var SingleTest=(function(){
+        var _instance=null;
+        return function (){
+            if(!_instance){
+                _instance=this;
+                console.log(_instance);
+                return _instance;
+            }else{
+                console.log("done");
+                return _instance;
+            }
+        }
+
+    })();
+
+    var s1=new SingleTest();
+    var s2=new SingleTest();
+
+    console.log(s1===s2);
+</script>
+</body>
+</html>
