@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+* body {
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+}
+* body .container {
+  color: #ffffff;
+  width: 960px;
+  margin: 0 auto;
+  font-family: arial, helvetica, sans-serif;
+  font-weight: bold;
+  vertical-align: middle;
+  text-align: center;
+}
+* body .container h1 {
+  margin: 20px 0;
+}
+* body .container nav {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+* body .container nav div {
+  width: 15%;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+}
+* body .container nav div:before,
+* body .container nav div:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  background-color: #ff0000;
+  width: 2px;
+  height: 40px;
+  -webkit-transform: scale3d(1, 0, 1);
+  transform: scale3d(1, 0, 1);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+* body .container nav div:before {
+  left: 0;
+}
+* body .container nav div:after {
+  right: 0;
+}
+* body .container nav div:hover {
+  cursor: pointer;
+  color: #ff0000;
+}
+* body .container nav div:hover:before,
+* body .container nav div:hover:after {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}
+* body .container nav div a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+* body .container nav div a:before,
+* body .container nav div a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  background-color: #ff0000;
+  height: 2px;
+  width: 100%;
+  -webkit-transform: scale3d(0, 1, 1);
+  transform: scale3d(0, 1, 1);
+  -webkit-transition: transform 0.5s ease-in-out;
+  -moz-transition: transform 0.5s ease-in-out;
+  -ms-transition: transform 0.5s ease-in-out;
+  -o-transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+* body .container nav div a:before {
+  top: 0;
+}
+* body .container nav div a:after {
+  bottom: 0;
+}
+* body .container nav div a:hover {
+  cursor: pointer;
+}
+* body .container nav div a:hover:before,
+* body .container nav div a:hover:after {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}

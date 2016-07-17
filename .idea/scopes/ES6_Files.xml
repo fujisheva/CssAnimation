@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="ES6-Files" pattern="file:*.es6" />
+</component>
