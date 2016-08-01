@@ -20,13 +20,14 @@
         </array>
       </option>
       <option name="outputFromStdout" value="true" />
+      <option name="passParentEnvs" value="true" />
       <option name="program" value="$USER_HOME$/AppData/Roaming/npm/lessc.cmd" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$FileDir$" />
       <envs />
     </TaskOptions>
-    <TaskOptions isEnabled="true">
+    <TaskOptions isEnabled="false">
       <option name="arguments" value="$FileName$ -o $FileNameWithoutExtensions$.js -s" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" value="Compiles .es6 files into .js files" />
@@ -45,6 +46,7 @@
         </array>
       </option>
       <option name="outputFromStdout" value="false" />
+      <option name="passParentEnvs" value="true" />
       <option name="program" value="$USER_HOME$/AppData/Roaming/npm/babel.cmd" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
@@ -53,3 +55,4 @@
     </TaskOptions>
   </component>
 </project>
+
